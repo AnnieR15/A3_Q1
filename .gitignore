@@ -1,0 +1,5 @@
+# Installed dependencies (recreated by "npm install")
+node_modules/
+
+# Local connection settings - may contain a real password
+.env

@@ -1,0 +1,29 @@
+# Optional: runs PostgreSQL and pgAdmin in Docker, for machines that do not
+# have them installed. Start with "docker compose up -d".
+# Values in ${...} are read from the .env file, with the defaults shown.
+
+services:
+  # The PostgreSQL server, reachable from this computer at localhost:5432.
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: ${PGPASSWORD:-postgres}
+    ports:
+      - "${PGPORT:-5432}:5432"
+    volumes:
+      # Named volume so the data survives container restarts.
+      - pgdata:/var/lib/postgresql/data
+
+  # pgAdmin web interface, at http://localhost:5050
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
