@@ -12,7 +12,7 @@ the four CRUD operations on a `students` table:
 
 ## Demonstration video
 
-**Video link:** _add the link to your video here_
+**Video link:** [(https://youtu.be/rcYO6Sf_56Q)](https://www.youtube.com/watch?v=rcYO6Sf_56Q)
 
 ## Project structure
 
